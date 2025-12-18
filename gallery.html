@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Savore - Authentic Italian Restaurant Menu Gallery">
+    <meta name="theme-color" content="#92400e">
+    <title>Savore Gallery | Authentic Italian</title>
+    <link href="/public/styles.css" rel="stylesheet">
+     <link href="stylez.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-light flex flex-col min-h-screen font-body text-dark">
+
+    <header class="sticky top-0 z-50 shadow-sm bg-white/80 backdrop-blur-md px-6 h-20 flex justify-between items-center border-b border-stone-200">
+        <div class="flex items-center space-x-4">
+            <div class="border-l-4 border-primary pl-4">
+                <h1 class="text-3xl font-display font-black text-primary tracking-tight">SAVORE</h1>
+                <p class="text-[10px] text-stone-500 uppercase tracking-[0.3em] font-bold">Est 2015</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <button onclick="goBack()" class="flex items-center space-x-2 text-stone-600 hover:text-primary transition duration-300 px-4 py-2 rounded-full border border-stone-200 hover:bg-stone-50">
+                <i class="fas fa-arrow-left text-sm"></i>
+                <span class="text-sm font-semibold">Back</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== GRID CONTAINER ===== -->
+    <div class="flex-1 grid grid-cols-1 md:grid-cols-[300px_1fr] overflow-hidden">
+        <aside class="bg-stone-900 w-full overflow-y-auto p-6 shadow-2xl z-20 max-h-screen md:max-h-full">
+            <h2 class="text-xs font-bold text-stone-500 uppercase tracking-[0.2em] mb-8 border-b border-stone-800 pb-4">Menu Selection</h2>
+            <ul id="categoryList" class="flex flex-col gap-4">
+                <!-- Menu list goes here -->
+            </ul> 
+        </aside>
+        
+        <!-- MOBILE VIEW -->
+        <main class="md:hidden flex-1 overflow-y-auto bg-white p-4 scrollbar-hide">
+            <div class="max-w-full mx-auto">
+                <div class="mb-8">
+                    <h2 id="currentCategoryTitleMobile" class="text-3xl font-display text-dark font-black mb-2">Our Menu</h2>
+                    <div class="h-1 w-20 bg-accent mb-4"></div>
+                    <p class="text-stone-600 text-sm italic font-display">Select a category to explore our authentic Italian dishes</p>
+                </div>
+
+                <div id="foodGridMobile" class="space-y-3 pb-6">
+                    <!-- Menu items appear as clickable list on mobile -->
+                </div>
+            </div>
+        </main>
+
+        <!-- DESKTOP VIEW -->
+        <main class="hidden md:block flex-1 overflow-y-auto bg-white p-6 md:p-12 scrollbar-hide">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h2 id="currentCategoryTitle" class="text-5xl font-display text-dark font-black mb-2">Our Menu</h2>
+                        <div class="h-1 w-20 bg-accent mb-4"></div>
+                        <p class="text-stone-600 mt-2 italic font-display text-lg ">Select a category to explore our authentic Italian dishes</p>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="hidden md:flex items-center space-x-2 text-dark">
+                            <i class="fas fa-clock text-xl"></i>
+                            <span class="font-medium font-display">Open Now: 10AM - 11PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="foodGridContainer" class="bg-light rounded-xl shadow-inner p-6 overflow-y-auto scrollbar-thin h-[calc(100vh-200px)]">
+                    <div id="foodGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ORDER MODAL -->
+    <div id="orderModal" class="hidden fixed inset-0 bg-stone-900/90 backdrop-blur-sm items-center justify-center p-4 z-[110]">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden relative max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 id="orderModalTitle" class="text-3xl font-display font-bold text-dark mb-1">Place Your Order</h3>
+                        <p class="text-stone-400 text-sm">Customize your portion</p>
+                    </div>
+                    <button onclick="closeOrderModal()" class="text-stone-300 hover:text-dark text-2xl transition">&times;</button>
+                </div>
+                
+                <div id="orderItemDetails" class="space-y-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE ITEM DETAIL MODAL -->
+    <div id="mobileItemModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end z-[110]">
+        <div class="bg-white w-full rounded-t-3xl shadow-2xl overflow-hidden animate-slide-up">
+            <div class="p-6 max-h-[85vh] overflow-y-auto">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 id="mobileItemTitle" class="text-2xl font-display font-bold text-dark">Item Name</h3>
+                    </div>
+                    <button onclick="closeMobileItemModal()" class="text-stone-300 hover:text-dark text-2xl transition">&times;</button>
+                </div>
+                
+                <div id="mobileItemImage" class="w-full h-48 rounded-2xl overflow-hidden mb-4">
+                    <img src="" class="w-full h-full object-cover">
+                </div>
+
+                <div id="mobileItemContent" class="space-y-4"></div>
+            </div>
+        </div>
+    </div>
+
+<!-- JavaScript code -->
+<script src="/js/gal.js"></script>
+
+</body>
+</html>

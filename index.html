@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Savore is a fine dining restaurant offering authentic Italian cuisine, handcrafted pasta, desserts, and premium drinks in a warm, elegant setting.">
+  <meta name="theme-color" content="#FCD34D">
+  <meta name="keywords" content="restaurant, food, food near me, dinning, local restaurant, local dishes, eatery">
+  <link href="/public/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Savore - Fine Dining Restaurant </title>
+</head>
+<body class="font-body text-gray-800 bg-light">
+<!-- Navigation-->
+<header class="fixed top-0 w-full bg-white shadow-md z-50">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+   <div class="flex justify-between items-center h-16">
+
+      <!-- Logo -->
+      <div class="flex flex-col justify-center items-start md:items-start border-l-4 border-primary pl-4">
+         <h1 class="text-3xl font-display font-black text-primary tracking-tight">SAVORE</h1>
+         <p class="text-[10px] text-stone-500 uppercase tracking-[0.3em] font-bold">Est 2015</p>
+      </div>
+
+      <!-- === Desktop Menu ==== -->
+      <div class="hidden md:flex space-x-8 ">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#" class="nav-link">Menu</a>
+        <a href="#" class="nav-link">Gallery</a>
+         <a href="#" class="nav-link">Contact</a>
+      </div>
+
+      <!-- ==== Hamburger ==== -->
+      <div class="md:hidden">
+        <button id="mobile-toggle" class="group flex items-center justify-center w-10 h-10
+        rouned-xl bg-white shadow hover:shadow-lg transition-all duration-300">
+          <svg class="w-6 h-6 stroke-black transition-all duration-300 group-hover:text-primary" fill="none" stroke="currentColor" 
+          viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-wdith="2"
+         d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        </button>
+        
+      </div> 
+
+   <div class="hidden md:flex items-center justify-center space-x-6">
+
+
+    <!-- Notifications -->
+     <div class="relative inline-block">
+     <button id="bellBtn" href="#" class="relative flex items-center justify-center text-dark hover:text-primary transition duration-300">
+         <i class="fa-regular fa-bell text-2xl"></i>
+      <!-- Badge -->
+      <span class="absolute -top-3 -right-2 bg-primary text-white text-sm font-bold rounded-full w-4 h-4 flex items-center justify-center">
+        2
+      </span>
+     </button> 
+
+     <!-- Notification dropdown -->
+      <div id="dropdown"
+            class="hidden absolute right-0 mt-2 w-63 bg-white border border-gray-200 rounded-lg shadow-lg">
+
+        <div class="p-4 border-b font-semibold  text-gray-700">Notifications</div>
+
+        <ul class="divide-y">
+          <li class="p-4 text-sm text-gray-600 hover:bg-gray-50">Your session has expired</li >
+          <li  class="p-4 text-sm text-gray-600 hover:bg-gray-50">New meals added to the menu</li >
+        </ul>
+
+     </div>
+   </div>  
+
+       
+      <!-- Sign in -->
+        <a href="#"
+          class="flex items-center gap-2 text-dark hover:text-primary tracking-normal transition duration-300">
+          <span>Sign in</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+
+    </div>
+    </div>
+ </div>
+
+ <!-- Mobile Menu-->
+  <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg text-left">
+    <a href="#home" class="menu-link block px-4 py-2 text-dark hover:bg-primary hover:text-light">Home</a>
+    <a href="#about" class="menu-link block px-4 py-2 text-dark hover:bg-primary hover:text-light">About</a>
+    <a href="#menu" class="menu-link block px-4 py-2 text-dark hover:bg-primary hover:text-light">Menu</a>
+    <a href="#gallery" class="menu-link block px-4 py-2 text-dark hover:bg-primary hover:text-light">Gallery</a>
+    <a href="#contact" class="menu-link block px-4 py-2 text-dark hover:bg-primary hover:text-light">Contact</a>
+  </div>
+  
+</header>
+  
+<!-- Hero Section -->
+ <section id="home" class="pt-16 bg-gradient-to-br from-primary/90 to-dark/90 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
+    <h1 class="text-5xl md:text-7xl font-display mb-4">
+      Welcome to Savore</h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+    Experience culinary excellence in an elegant atmosphere.</p>
+
+    <div class="space-x-4">
+    <button id="openMenuModal"
+      class="inline-block bg-accent text-dark px-8 py-3 rounded-full font-medium hover:bg-yellow-500 transition">
+      View Menu
+    </button>
+
+      <a href="#contact" class="inline-block border-2 border-accent px-8 py-3
+      rounded-full font-medium hover:bg-yellow-500 hover:text-dark transition">
+    Book a Table</a>
+    </div>
+  </div>
+ </section>
+
+<!-- Modal window -->
+<div id="menuModal" 
+     class="fixed inset-0 bg-black/70 backdrop-blur-md hidden items-center justify-center z-50 p-4"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="menuModalTitle"
+     aria-describedby="menuModalDescription">
+  
+  <div class="bg-gradient-to-br from-white to-gray-50 w-full max-w-lg rounded-2xl shadow-2xl overflow-auto animate-fadeInUp">
+    
+    <!-- Modal Header -->
+    <div class="bg-primary p-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <h2 id="menuModalTitle" class="text-2xl font-display font-bold text-white">Our Culinary Menu</h2>
+          <p id="menuModalDescription" class="text-white/90 mt-1">Discover chef-crafted specialties</p>
+        </div>
+        
+        <!-- Close Button -->
+        <button id="closeMenuModal"
+                class="text-white hover:text-accent transition-colors text-2xl p-1 rounded-full hover:bg-white/10"
+                aria-label="Close menu modal">
+          &times;
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal Content -->
+    <div class="p-6 md:p-7">
+      <p class="text-gray-600 mb-6 leading-relaxed">
+        Browse our curated selection of fine dishes prepared by world-class chefs using locally-sourced ingredients.
+      </p>
+
+      <!-- Menu Items with Enhanced Visuals -->
+      <div class="space-y-4 mb-8">
+        <div class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition-colors group">
+         <div class="bg-primary/10 p-3 rounded-lg mr-5 group-hover:scale-110 transition-transform">
+            <span class="text-2xl">🥗</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 text-lg">Appetizers</h3>
+            <p class="text-sm text-gray-500">Seasonal starters, light bites</p>
+          </div>
+        </div>
+
+        <div class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition-colors group">
+          <div class="bg-primary/10 p-3 rounded-lg mr-5 group-hover:scale-110 transition-transform">
+            <span class="text-2xl">🍝</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 text-lg">First Course</h3>
+            <p class="text-sm text-gray-500">Handmade pasta, soups, risottos</p>
+          </div>
+        </div>
+
+        <div class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition-colors group">
+          <div class="bg-primary/10 p-3 rounded-lg mr-5 group-hover:scale-110 transition-transform">
+            <span class="text-2xl">🥩</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 text-lg">Second Course</h3>
+            <p class="text-sm text-gray-500">Grilled meats, seafood, chef specials</p>
+          </div>
+        </div>
+
+        <div class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition-colors group">
+          <div class="bg-primary/10 p-3 rounded-lg mr-5 group-hover:scale-110 transition-transform">
+            <span class="text-2xl">🥔</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800 text-lg">Side Dishes</h3>
+            <p class="text-sm text-gray-500">Roasted vegetables, potatoes, grains</p>
+          </div>
+        </div>
+
+        <div class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition-colors group">
+          <div class="bg-primary/10 p-2 rounded-lg mr-4 group-hover:scale-110 transition-transform">
+            <span class="text-xl">🍰</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Desserts & Pastries</h3>
+            <p class="text-sm text-gray-500">Pastry chef creations, sweet indulgence</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#menu"
+           class="flex-1 bg-primary text-white py-3 rounded-lg font-semibold hover:bg-accent hover:text-dark transition-all duration-300 text-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+           View Full Menu
+        </a>
+        <button class="flex-1 border-2 border-primary text-primary py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">
+           Download PDF Menu
+        </button>
+      </div>
+
+      <!-- Additional Info -->
+      <div class="mt-6 pt-6 border-t border-gray-200">
+        <div class="flex items-center text-sm text-gray-500">
+          <span class="mr-2">🕒</span>
+          <p>Available daily from 11AM - 10PM • Seasonal items may vary</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       <div class="grid md:grid-cols-2 gap-12 items-center">
+           <div >
+              <h2 class="text-4xl font-display text-primary mb-6">Our Story & Philosophy </h2>
+              <p class="text-sm md:text-lg mb-4">
+                Founded in 2015, Savore has been a cornerstone of fine dining in the heart of the city. Our  
+                passion for fresh, locally-sourced ingredients and innovative cuisine has earned us recognition
+                among food critics and loyal patrons alike.
+              </p>
+              <p class="text-sm md:text-lg">
+                From initimate dinners to grind celebrations, our team is dedicated to creating unforgettable 
+                dining experience.
+              </p>
+             <!-- <a href="#contact" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300 pt-15">Meet Our Team &rarr;</a> -->
+           </div>
+           <div class="flex flex-1 rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] group">
+            <img class="w-full h-auto block transition-transform duration-500 ease-in-out group-hover:scale-105"
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restaurant Interior">
+                </div>
+           </div>
+       </div>
+      </div>
+  </section>
+
+   <!-- Menu -->
+
+   <!-- Contact and Reservation -->
+    <section id="contact" class="py-16 bg-gray-50">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <h2 class="text-4xl font-display text-primary text-center mb-12">
+            Contact & Reservations</h2>
+
+          <div class="grid md:grid-cols-2 gap-12">
+           <div>
+            <h3 class="text-2xl font-display text-dark mb-4">Visit Us</h3>
+            <p class="mb-2"><strong>Address:</strong> 123 Gournet Street, Culinary District, W 10001</p>
+            <p class="mb-2"><strong>Phone:</strong> (555) 123-4567</p>
+            <p class="mb-2"><strong>Email Us:</strong> savore@biz.italy</p>
+            <p class="mt-6"><strong>Hours:</strong></p>
+            <ul class="mt-2 space-y-1">
+               <li >Mon-Thu: 10:00 AM - 11:00 PM</li >
+               <li >Fri-Sat: 11:00 AM - 11:00 PM</li >
+               <li >Sun: 12:00 PM - 9:00 PM</li >
+            </ul>
+          </div>
+          <div>
+              <h3 class="text-2xl font-display text-dark mb-4">Book a Table</h3>
+              <!--Reservation Form -->
+              <form class="space-y-4">
+                 <input type="text" placeholder="Name"
+                 class="w-full py-2 px-4 border rounded-lg focus:ouline-none focus:border-primary" />
+                 <input type="email" placeholder="Email"
+                 class="w-full py-2 px-4 border rounded-lg focus:ouline-none focus:border-primary" />
+                 <input type="tel" placeholder="Phone"
+                 class="w-full py-2 px-4 border rounded-lg focus:ouline-none focus:border-primary" />
+                 <input type="date" 
+                 class="w-full py-2 px-4 border rounded-lg focus:ouline-none focus:border-primary" />
+                 <select   class="w-full py-2 px-4 border rounded-lg focus:ouline-none focus:border-primary">
+                  <option>Party Size</option>
+                  <option>2</option>
+                  <option>4</option>
+                  <option>6</option>
+                  <option>8+</option>
+                 </select>
+                 <button class="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-accent
+                 hover:text-dark transition">
+                  Reserve Now
+                 </button>
+              </form>
+          </div>
+       </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="w-full bg-camel py-12">
+        <h3 class="text-4xl font-display text-primary text-center mb-1">Gallery</h3>
+        <p class="text-base md:text-lg tracking-wide font-display text-center text-dark mb-11 italic">Explore our most sort for delicacies.</p>
+  
+        <div class="overflow-hidden py-4">
+           <div class="flex animate-left whitespace-nowrap">
+
+            <!-- Images -->
+             <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" alt="Linguine alle Vongole"
+              class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Osso Buco"
+              class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=781&q=80" alt="Alpha Pizza"
+              class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80" alt="Bacon Roll"
+               class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80" alt="Bread Vietnam"
+              class="gallery-img">
+           
+              <!--Duplicate-->
+             <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" alt="Linguine alle Vongole"
+              class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Osso Buco"
+              class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=781&q=80" alt="Alpha Pizza"
+              class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80" alt="Bacon Roll"
+               class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80" alt="Bread Vietnam"
+              class="gallery-img">
+           </div>
+        </div>
+        <!-- Explore Button-->
+         <div class="flex justify-center mt-8">
+          <button id="exploreButton" type="button" class="px-12 py-4 rounded-lg text-white bg-primary font-medium hover:bg-accent hover:text-black shadow-md flex items-center justify-center">
+              <span id="buttonText">EXPLORE</span>
+              <span id="spinnerContainer" class="hidden ml-4"> 
+                  <span id="spinner"></span>
+              </span>
+          </button>
+        </div>
+
+      </section>
+
+  <!-- Footer-->
+ <footer class="bg-gradient-to-r from-amber-600 to-black text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <div class="md:col-span-2">
+                <h3 class="text-2xl font-extrabold text-yellow-300 mb-3 font-display">Savore</h3>
+                <p class="text-sm leading-relaxed mb-6 md:font-bold">
+                    Authentic fancy restaurant in the heart of the city. Experience the taste of Italy with
+                    our handcrafted dishes made from the finest ingredients.
+                </p>
+               
+                <div class="flex space-x-3">
+                 <!-- WhatsApp -->
+                  <a href="#" class="w-10 h-10 bg-black/60 backdrop-blur-sm hover:bg-accent rounded-full transition duration-300 hover:translate-x-[-1px] inline-flex items-center justify-center md:text-lg">
+                    <i class="fa-brands fa-whatsapp text-white"></i>
+                  </a>
+
+                  <!-- Facebook -->
+                  <a href="#" class="w-10 h-10 bg-black/60 backdrop-blur-sm hover:bg-accent rounded-full transition duration-300 hover:translate-x-[-1px] inline-flex items-center justify-center">
+                    <i class="fa-brands fa-facebook-f text-white"></i>
+                  </a>
+
+                  <!-- Twitter / X -->
+                  <a href="#" class="w-10 h-10 bg-black/60 backdrop-blur-sm hover:bg-accent rounded-full transition duration-300 hover:translate-x-[-1px] inline-flex items-center justify-center">
+                    <i class="fa-brands fa-x-twitter text-white"></i>
+                  </a>
+
+                  <!-- Instagram -->
+                  <a href="#" class="w-10 h-10 bg-black/60 backdrop-blur-sm hover:bg-accent rounded-full transition duration-300 hover:translate-x-[-1px] inline-flex items-center justify-center">
+                    <i class="fa-brands fa-instagram text-white"></i>
+                  </a>
+                </div>
+
+            </div>
+
+            <div>
+                <h4 class="text-sm font-semibold text-accent uppercase mb-4 tracking-wider pb-1 
+                border-b border-accent inline-block"> Quick Links</h4>
+                <ul class="text-sm space-y-2">
+                    <li ><a href="#home" class="hover:text-primary transition">Home</a></li >
+                    <li ><a href="#about" class="hover:text-primary transition">About</a></li >
+                    <li ><a href="#" class="hover:text-primary transition">Menu</a></li >
+                    <li ><a href="#" class="hover:text-primary transition">Reservations</a></li >
+                    <li ><a href="#" class="hover:text-primary transition">Contact Us</a></li >
+                </ul>
+            </div>
+
+            <div>
+                <div class="mb-8">
+                    <h4 class="text-sm font-semibold text-accent uppercase mb-4 tracking-wider pb-1 
+                border-b border-accent inline-block">Opening Hours</h4>
+                    <ul class="text-sm space-y-1">
+                        <li ><span class="text-gray-300">Monday - Thursday:</span> 10am - 11pm</li >
+                        <li ><span class="text-gray-300">Friday - Saturday:</span> 11am - 11pm</li >
+                        <li ><span class="text-gray-300">Sunday:</span> 12pm - 9pm</li >
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-accent uppercase mb-4 tracking-wider pb-1 
+                border-b border-accent inline-block">Contact Info</h4>
+                    <p class="text-sm space-y-1">
+                        <span class="block">123 Italian Street, NY 10001</span>
+                        <span class="block">(212) 555-1234</span>
+                        <a href="mailto:info@savore.co" class="hover:text-primary transition">info@savore.co</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-gray-800 text-center text-xs md:text-sm text-gray-400">
+            &copy; 2025 Savore. All rights reserved
+        </div>
+    </div>
+</footer>
+
+<!--Script-->
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Savore</title>
+    <link href="/public/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- ===== HEADER === -->
+     <header class="sticky top-0 z-50 shadow-sm bg-white/80 backdrop-blur-md px-6 h-20 flex justify-between items-center border-b border-stone-200">
+        <div class="flex items-center space-x-4">
+            <div class="hidden md:block border-l-4 border-primary pl-4">
+                <h1 class="text-3xl font-display font-black text-primary tracking-tight">SAVORE</h1>
+                <p class="text-[10px] text-stone-500 uppercase tracking-[0.3em] font-bold">Est 2015</p>
+            </div>
+        </div>
+        
+        <h2 class="text-left text-lg md:text-2xl font-bold text-primary font-display">Checkout Page</h2>
+        
+        <div class="flex items-center space-x-4">
+            <button href="gallery.html" class=" text-primary hover:text-terracotta font-semibold border border-primary hover:border-accent px-4 py-2 rounded-lg flex items-center transition">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Gallery
+            </button>
+        </div>
+    </header>
+
+    <div class="max-w-5xl mx-auto px-4 pb-20 mt-10">
+        <h2 class="text-xl md:text-2xl font-display font-bold mb-8">Your Order Cart</h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-4">
+                <div id="cartItemsContainer" class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    </div>
+                
+                <div id="emptyCartMsg" class="hidden bg-white p-12 text-center rounded-xl shadow-sm">
+                    <i class="fas fa-shopping-basket text-gray-500 text-5xl mb-4"></i>
+                    <p class="text-gray-500 text-lg">Your cart is empty.</p>
+                    <a href="gallery.html" class="mt-4 inline-block text-shadow-primary/40 font-bold">Browse Menu</a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-md p-6 sticky top-24">
+                    <h3 class="text-xl font-bold mb-4 border-b pb-2">Order Summary</h3>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between text-gray-600">
+                            <span>Subtotal</span>
+                            <span id="summarySubtotal">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-gray-600">
+                            <span>Delivery Fee</span>
+                            <span class="text-green-600">FREE</span>
+                        </div>
+                        <div class="flex justify-between text-xl font-bold text-primary pt-3 border-t">
+                            <span>Total</span>
+                            <span id="summaryTotal">$0.00</span>
+                        </div>
+                    </div>
+
+                    <h4 class="font-bold mb-3 text-sm uppercase text-gray-500">Payment Method</h4>
+                    <div class="space-y-3 mb-6">
+                        <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                            <input type="radio" name="payment" value="card" checked class="w-4 h-4 text-amber-600">
+                            <span class="ml-3"><i class="far fa-credit-card mr-2"></i> Credit Card</span>
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                            <input type="radio" name="payment" value="paypal" class="w-4 h-4 text-amber-600">
+                            <span class="ml-3"><i class="fab fa-paypal mr-2"></i> PayPal</span>
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                            <input type="radio" name="payment" value="cash" class="w-4 h-4 text-amber-600">
+                            <span class="ml-3"><i class="fas fa-money-bill-wave mr-2"></i> Cash on Delivery</span>
+                        </label>
+                    </div>
+
+                    <button onclick="processOrder()" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-amber-800 transition shadow-lg">
+                        Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/checkout.js">
+        
+    </script>
+</body>
+</html>
